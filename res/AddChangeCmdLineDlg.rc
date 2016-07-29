@@ -1,0 +1,22 @@
+#define IDD_AddCmdLine 1000
+#define IDC_LblAddCmdLineModuleFilename 1001
+#define IDC_LblAddCmdLineCommandLine 1003
+#define IDC_TxtAddCmdLineCommandLine 1004
+#define IDC_TxtAddCmdLineModuleFilename 1002
+#define IDC_BtnAddCmdLineOK 1005
+#define IDC_ChkAddCmdLineRemember 1006
+#define IDC_BtnAddCmdLineCancel 1007
+IDD_AddCmdLine DIALOGEX 6,6,359,64
+CAPTION "AutoCmdLine - Add or change command line"
+FONT 8,"Segoe UI",400,0
+STYLE 0x10C80800
+EXSTYLE 0x00000000
+BEGIN
+  CONTROL "Module Filename:",IDC_LblAddCmdLineModuleFilename,"Static",0x50000000,5,4,64,12,0x00000000
+  CONTROL "",IDC_TxtAddCmdLineModuleFilename,"Edit",0x50010880,74,4,278,12,0x00000200
+  CONTROL "Command Line:",IDC_LblAddCmdLineCommandLine,"Static",0x50000000,5,22,66,12,0x00000000
+  CONTROL "",IDC_TxtAddCmdLineCommandLine,"Edit",0x50010180,74,22,278,12,0x00000200
+  CONTROL "Remember This Command Line",IDC_ChkAddCmdLineRemember,"Button",0x50010003,74,41,123,12,0x00000000
+  CONTROL "&Cancel",IDC_BtnAddCmdLineCancel,"Button",0x50010000,202,41,72,15,0x00000000
+  CONTROL "O&K",IDC_BtnAddCmdLineOK,"Button",0x50010001,280,41,72,15,0x00000000
+END

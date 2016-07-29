@@ -1,0 +1,3 @@
+#include "Res/AddChangeCmdLineDlg.rc"
+#include "Res/AutoCmdLineRes.rc"
+#include "Res/AutoCmdLineVer.rc"

@@ -1,0 +1,4 @@
+#define MANIFEST 						24
+1						MANIFEST  DISCARDABLE "AutoCmdLine.xml"
+101						RCDATA    DISCARDABLE "Images/AutoCmdLine.png"
+100						ICON      DISCARDABLE "Images/AutoCmdLine.ico"
