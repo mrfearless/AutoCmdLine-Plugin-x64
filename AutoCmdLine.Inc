@@ -95,7 +95,7 @@ DebugFilenameMD5                DB 256 DUP (0)
 ;dbgfilename_md5ctext            MD5CTXT <>
 ;dbgfilename_md5chash            MD5HASH <>
 
-
+szGetCmdLine                    DB "GetCommandLine",0
 szIniCmdLine                    DB "CmdLine",0
 szIniRemember                   DB "Remember",0           
 szCRLF                          DB 13,10,0

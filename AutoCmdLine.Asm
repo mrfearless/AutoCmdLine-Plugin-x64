@@ -197,9 +197,9 @@ plugsetup endp
 ;-------------------------------------------------------------------------------------
 CBMENUENTRY PROC FRAME USES RBX cbType:QWORD, cbInfo:QWORD
     mov rbx, cbInfo
-    mov eax, [rbx].PLUG_CB_MENUENTRY.hEntry
+    mov rax, [rbx].PLUG_CB_MENUENTRY.hEntry
     
-    .IF eax == MENU_PLUGIN1
+    .IF rax == MENU_PLUGIN1
         Invoke DbgIsDebugging
         .IF rax == FALSE
             Invoke GuiAddStatusBarMessage, Addr szDebuggingRequired
@@ -279,8 +279,16 @@ CBSYSTEMBREAKPOINT PROC FRAME cbType:QWORD, cbInfo:QWORD
             Invoke GuiAddLogMessage, Addr szLogMsg
         
             ; do the call to setcmdline
-            Invoke lstrcat, Addr szNewCommandLine, Addr szCRLF
-            _DbgFunctions SetCmdline, Addr szNewCommandLine
+            Invoke lstrcpy, Addr szCommandLine, Addr szQuote
+            Invoke lstrcat, Addr szCommandLine, DebugFilename
+            Invoke lstrcat, Addr szCommandLine, Addr szQuote
+            Invoke lstrcat, Addr szCommandLine, Addr szSpace
+            Invoke lstrcat, Addr szCommandLine, Addr szNewCommandLine
+            _DbgFunctions SetCmdline, Addr szCommandLine ;szNewCommandLine
+            Invoke DbgCmdExec, Addr szGetCmdLine            
+
+            ;Invoke lstrcat, Addr szNewCommandLine, Addr szCRLF
+            ;_DbgFunctions SetCmdline, Addr szNewCommandLine
         .ENDIF
     .ENDIF    
     
