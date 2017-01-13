@@ -197,9 +197,10 @@ plugsetup endp
 ;-------------------------------------------------------------------------------------
 CBMENUENTRY PROC FRAME USES RBX cbType:QWORD, cbInfo:QWORD
     mov rbx, cbInfo
-    mov rax, [rbx].PLUG_CB_MENUENTRY.hEntry
+    xor rax, rax
+    mov eax, [rbx].PLUG_CB_MENUENTRY.hEntry
     
-    .IF rax == MENU_PLUGIN1
+    .IF eax == MENU_PLUGIN1
         Invoke DbgIsDebugging
         .IF rax == FALSE
             Invoke GuiAddStatusBarMessage, Addr szDebuggingRequired
